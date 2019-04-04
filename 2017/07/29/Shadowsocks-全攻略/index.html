@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next mist" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+  
+  
+    
+      
+    
+    
+      
+    
+  <script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+  <link rel="stylesheet" href="//cdn.bootcss.com/pace/1.0.2/themes/black/pace-theme-minimal.min.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.2/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="/Blog/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/Blog/images/apple-touch-icon-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/Blog/images/favicon-32x32-next.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/Blog/images/favicon-16x16-next.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/Blog/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/Blog/',
+    scheme: 'Mist',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="前言攻略主要的内容为Shadowsocks的搭建，从VPS服务器的购买，到Shadowsocks的安装优化。仅作学习作用。 开始第一步，购买VPS服务器经过多方的对比，在这里我推荐购买适合个人使用的性价比较高的bandwagon（搬瓦工）VPS。">
+<meta name="keywords" content="Linux,Shadowsocks,VPS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Shadowsocks 全攻略">
+<meta property="og:url" content="https://xinyii.github.io/Blog/2017/07/29/Shadowsocks-全攻略/index.html">
+<meta property="og:site_name" content="XY | Blog">
+<meta property="og:description" content="前言攻略主要的内容为Shadowsocks的搭建，从VPS服务器的购买，到Shadowsocks的安装优化。仅作学习作用。 开始第一步，购买VPS服务器经过多方的对比，在这里我推荐购买适合个人使用的性价比较高的bandwagon（搬瓦工）VPS。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-03T14:08:10.936Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Shadowsocks 全攻略">
+<meta name="twitter:description" content="前言攻略主要的内容为Shadowsocks的搭建，从VPS服务器的购买，到Shadowsocks的安装优化。仅作学习作用。 开始第一步，购买VPS服务器经过多方的对比，在这里我推荐购买适合个人使用的性价比较高的bandwagon（搬瓦工）VPS。">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://xinyii.github.io/Blog/2017/07/29/Shadowsocks-全攻略/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Shadowsocks 全攻略 | XY | Blog</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/Blog/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">XY | Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/Blog/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/Blog/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/Blog/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/Blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/Blog/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+    
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://xinyii.github.io/Blog/Blog/2017/07/29/Shadowsocks-全攻略/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="XY">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/Blog/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="XY | Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Shadowsocks 全攻略
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2017-07-29 22:56:52" itemprop="dateCreated datePublished" datetime="2017-07-29T22:56:52+08:00">2017-07-29</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/Blog/categories/Tool/" itemprop="url" rel="index"><span itemprop="name">Tool</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>攻略主要的内容为Shadowsocks的搭建，从VPS服务器的购买，到Shadowsocks的安装优化。仅作学习作用。</p>
+<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><h4 id="第一步，购买VPS服务器"><a href="#第一步，购买VPS服务器" class="headerlink" title="第一步，购买VPS服务器"></a>第一步，购买VPS服务器</h4><p>经过多方的对比，在这里我推荐购买适合个人使用的性价比较高的bandwagon（搬瓦工）VPS。</p>
+<a id="more"></a>
+<table>
+<thead>
+<tr>
+<th>方案名</th>
+<th>内存</th>
+<th>硬盘</th>
+<th>流量</th>
+<th>价格</th>
+<th>链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KVM架构6机房</td>
+<td>512MB</td>
+<td>10GB</td>
+<td>500GB/月</td>
+<td>$2.99月、$19.9年</td>
+<td><a href="https://bwh1.net/cart.php?a=confproduct&amp;i=1" target="_blank" rel="noopener">点我</a></td>
+</tr>
+<tr>
+<td>KVM架构单机房</td>
+<td>512MB</td>
+<td>10GB</td>
+<td>1000GB/月</td>
+<td>$2.99月、$19.9年</td>
+<td><a href="https://bwh1.net/cart.php?a=confproduct&amp;i=0" target="_blank" rel="noopener">点我</a></td>
+</tr>
+</tbody>
+</table>
+<p>价格换算：包年$19.9 ≈ ￥134，折合每月￥11.2。 在这个价格上还可以使用优惠码在购买时打折。优惠码：</p>
+<ul>
+<li>BWH1ZBPVK（6%）</li>
+<li>BWH1XZOBK（5.5%）</li>
+<li>BWH1NJJHL（4.5%）</li>
+<li>BWH1GFWZP（3.5%）</li>
+<li>BWH1FOXXE（3%）</li>
+</ul>
+<p>选择方案，进入购买页面购买，新用户需要注册，支付时可以使用支付宝。具体购买教程：<a href="http://banwagong.cn/gonglue.html" target="_blank" rel="noopener">http://banwagong.cn</a></p>
+<h4 id="第二步，安装Shadowsocks服务端"><a href="#第二步，安装Shadowsocks服务端" class="headerlink" title="第二步，安装Shadowsocks服务端"></a>第二步，安装Shadowsocks服务端</h4><p>购买成功后进入 <a href="https://bandwagonhost.com/clientarea.php?action=products" target="_blank" rel="noopener">MyServices Page</a><br>然后进入KVM控制面板 <code>KiwiVM Control Panel</code><br>在这里可以修改操作系统，建议安装 <code>centos-7-x86_64-bbr</code><br>然后修改ssh登录密码，设置成功后通过ssh登录服务器，开始安装Shadowsocks服务端</p>
+<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>CentOS:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install python-setuptools &amp;&amp; easy_install pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure></p>
+<p>Debian / Ubuntu:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure></p>
+<h5 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h5><p>创建或修改配置文件 <code>/etc/shadowsocks.json</code> 例如：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>:<span class="string">"my_server_ip"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>:<span class="number">8388</span>,</span><br><span class="line">    <span class="attr">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"password"</span>:<span class="string">"mypassword"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">    <span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"fast_open"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>配置说明</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>server</td>
+<td>服务监听IP地址，设置为本机外网ip</td>
+</tr>
+<tr>
+<td>server_port</td>
+<td>服务监听端口，推荐设置为443</td>
+</tr>
+<tr>
+<td>local_address</td>
+<td>本地监听ip地址</td>
+</tr>
+<tr>
+<td>local_port</td>
+<td>本地监听端口</td>
+</tr>
+<tr>
+<td>password</td>
+<td>密码</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>超时，秒</td>
+</tr>
+<tr>
+<td>method</td>
+<td>加密方式，默认 <code>aes-256-cfb</code></td>
+</tr>
+<tr>
+<td>fast_open</td>
+<td>是否启用 <code>TCP_FASTOPEN</code></td>
+</tr>
+<tr>
+<td>workers</td>
+<td>进程数，仅 Unix/Linux 有效</td>
+</tr>
+</tbody>
+</table>
+<h5 id="启动与停止"><a href="#启动与停止" class="headerlink" title="启动与停止"></a>启动与停止</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d stop</span><br></pre></td></tr></table></figure>
+<h4 id="第三步，使用Shadowsocks客户端"><a href="#第三步，使用Shadowsocks客户端" class="headerlink" title="第三步，使用Shadowsocks客户端"></a>第三步，使用Shadowsocks客户端</h4><h5 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a>客户端下载</h5><ul>
+<li><a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">Windows</a> / <a href="https://github.com/shadowsocks/shadowsocks-iOS/releases" target="_blank" rel="noopener">OS X</a></li>
+<li><a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="noopener">Android</a> / <a href="https://github.com/shadowsocks/shadowsocks-iOS/wiki/Help" target="_blank" rel="noopener">iOS</a></li>
+<li><a href="https://github.com/shadowsocks/openwrt-shadowsocks" target="_blank" rel="noopener">OpenWRT</a></li>
+</ul>
+<h5 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h5><p>Windows客户端为例，启动后右键系统任务栏图标 -&gt; 服务器 -&gt; 编辑服务器<br>填入Shadowsocks对应的服务配置，保存</p>
+<h5 id="客户端使用"><a href="#客户端使用" class="headerlink" title="客户端使用"></a>客户端使用</h5><p>右键系统任务栏图标 -&gt; 启动系统代理<br>登录 <a href="https://www.google.com/" target="_blank" rel="noopener">google.com</a> 测试</p>
+<h4 id="第四步，优化Shadowsocks配置"><a href="#第四步，优化Shadowsocks配置" class="headerlink" title="第四步，优化Shadowsocks配置"></a>第四步，优化Shadowsocks配置</h4><p><a href="https://github.com/iMeiji/shadowsocks_install/wiki/shadowsocks-optimize" target="_blank" rel="noopener">参考链接</a></p>
+<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>翻墙不易，且行且珍惜。<br>（请勿用于商业或其他任何违法用途）</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/Blog/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/Blog/tags/Shadowsocks/" rel="tag"># Shadowsocks</a>
+          
+            <a href="/Blog/tags/VPS/" rel="tag"># VPS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Blog/2016/10/27/Shell-常用命令/" rel="next" title="Shell 常用命令">
+                <i class="fa fa-chevron-left"></i> Shell 常用命令
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/Blog/2017/12/31/Hexo-常用命令/" rel="prev" title="Hexo 常用命令">
+                Hexo 常用命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/Blog/uploads/avatar.jpg" alt="XY">
+            
+              <p class="site-author-name" itemprop="name">XY</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/Blog/archives/">
+                
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/Blog/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/Blog/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">6</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始"><span class="nav-number">2.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步，购买VPS服务器"><span class="nav-number">2.1.</span> <span class="nav-text">第一步，购买VPS服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步，安装Shadowsocks服务端"><span class="nav-number">2.2.</span> <span class="nav-text">第二步，安装Shadowsocks服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装"><span class="nav-number">2.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改配置文件"><span class="nav-number">2.2.2.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启动与停止"><span class="nav-number">2.2.3.</span> <span class="nav-text">启动与停止</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步，使用Shadowsocks客户端"><span class="nav-number">2.3.</span> <span class="nav-text">第三步，使用Shadowsocks客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#客户端下载"><span class="nav-number">2.3.1.</span> <span class="nav-text">客户端下载</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#客户端配置"><span class="nav-number">2.3.2.</span> <span class="nav-text">客户端配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#客户端使用"><span class="nav-number">2.3.3.</span> <span class="nav-text">客户端使用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四步，优化Shadowsocks配置"><span class="nav-number">2.4.</span> <span class="nav-text">第四步，优化Shadowsocks配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">XY</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.min.js"></script>
+
+  
+  <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+
+  
+
+
+  <script src="/Blog/js/utils.js?v=7.1.0"></script>
+
+  <script src="/Blog/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/Blog/js/schemes/muse.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/Blog/js/scrollspy.js?v=7.1.0"></script>
+<script src="/Blog/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/Blog/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
