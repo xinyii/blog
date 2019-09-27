@@ -403,6 +403,9 @@ kbd {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
+.highlight .table-container {
+  margin: 0px;
+}
 table {
   width: 100%;
   border-collapse: collapse;
@@ -1075,8 +1078,11 @@ pre .javascript .function {
 .back-to-top.back-to-top-on {
   bottom: 19px;
 }
-.back-to-top:hover {
-  color: #87daff;
+@media (max-width: 991px) {
+  .back-to-top {
+    opacity: 0.8;
+    right: 20px;
+  }
 }
 .header {
   background: transparent;
@@ -1698,11 +1704,10 @@ pre .javascript .function {
   z-index: 1050;
   cursor: pointer;
 }
-.sidebar-toggle:hover .sidebar-toggle-line {
-  background: #87daff;
-}
 @media (max-width: 991px) {
   .sidebar-toggle {
+    opacity: 0.8;
+    right: 20px;
     display: none;
   }
 }
@@ -1760,7 +1765,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #03ffff;
+  background: #eef485;
 }
 .feed-link,
 .chat {
@@ -2645,9 +2650,6 @@ hr {
   .posts-expand .post-body {
     font-size: 14px;
   }
-}
-.posts-expand .post-body img {
-  margin: 0;
 }
 .posts-expand .post-tags {
   text-align: left;

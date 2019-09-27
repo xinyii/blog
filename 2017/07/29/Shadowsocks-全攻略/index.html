@@ -47,6 +47,12 @@
 
 
 
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
 
 
 
@@ -86,7 +92,7 @@
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
-    fancybox: false,
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -115,7 +121,7 @@
 <meta property="og:site_name" content="XY | Blog">
 <meta property="og:description" content="前言攻略主要的内容为Shadowsocks的搭建，从VPS服务器的购买，到Shadowsocks的安装优化。仅作学习作用。 开始第一步，购买VPS服务器经过多方的对比，在这里我推荐购买适合个人使用的性价比较高的bandwagon（搬瓦工）VPS。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-03T14:08:10.936Z">
+<meta property="og:updated_time" content="2019-04-05T10:31:54.199Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shadowsocks 全攻略">
 <meta name="twitter:description" content="前言攻略主要的内容为Shadowsocks的搭建，从VPS服务器的购买，到Shadowsocks的安装优化。仅作学习作用。 开始第一步，购买VPS服务器经过多方的对比，在这里我推荐购买适合个人使用的性价比较高的bandwagon（搬瓦工）VPS。">
@@ -239,6 +245,23 @@
         
         
           
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/Blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-categories">
 
     
@@ -267,23 +290,6 @@
     
 
     <a href="/Blog/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/Blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
         
@@ -483,8 +489,8 @@
       
 
       
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>攻略主要的内容为Shadowsocks的搭建，从VPS服务器的购买，到Shadowsocks的安装优化。仅作学习作用。</p>
-<h3 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h3><h4 id="第一步，购买VPS服务器"><a href="#第一步，购买VPS服务器" class="headerlink" title="第一步，购买VPS服务器"></a>第一步，购买VPS服务器</h4><p>经过多方的对比，在这里我推荐购买适合个人使用的性价比较高的bandwagon（搬瓦工）VPS。</p>
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>攻略主要的内容为Shadowsocks的搭建，从VPS服务器的购买，到Shadowsocks的安装优化。仅作学习作用。</p>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><h2 id="第一步，购买VPS服务器"><a href="#第一步，购买VPS服务器" class="headerlink" title="第一步，购买VPS服务器"></a>第一步，购买VPS服务器</h2><p>经过多方的对比，在这里我推荐购买适合个人使用的性价比较高的bandwagon（搬瓦工）VPS。</p>
 <a id="more"></a>
 <table>
 <thead>
@@ -525,10 +531,10 @@
 <li>BWH1FOXXE（3%）</li>
 </ul>
 <p>选择方案，进入购买页面购买，新用户需要注册，支付时可以使用支付宝。具体购买教程：<a href="http://banwagong.cn/gonglue.html" target="_blank" rel="noopener">http://banwagong.cn</a></p>
-<h4 id="第二步，安装Shadowsocks服务端"><a href="#第二步，安装Shadowsocks服务端" class="headerlink" title="第二步，安装Shadowsocks服务端"></a>第二步，安装Shadowsocks服务端</h4><p>购买成功后进入 <a href="https://bandwagonhost.com/clientarea.php?action=products" target="_blank" rel="noopener">MyServices Page</a><br>然后进入KVM控制面板 <code>KiwiVM Control Panel</code><br>在这里可以修改操作系统，建议安装 <code>centos-7-x86_64-bbr</code><br>然后修改ssh登录密码，设置成功后通过ssh登录服务器，开始安装Shadowsocks服务端</p>
-<h5 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h5><p>CentOS:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install python-setuptools &amp;&amp; easy_install pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure></p>
+<h2 id="第二步，安装Shadowsocks服务端"><a href="#第二步，安装Shadowsocks服务端" class="headerlink" title="第二步，安装Shadowsocks服务端"></a>第二步，安装Shadowsocks服务端</h2><p>购买成功后进入 <a href="https://bandwagonhost.com/clientarea.php?action=products" target="_blank" rel="noopener">MyServices Page</a><br>然后进入KVM控制面板 <code>KiwiVM Control Panel</code><br>在这里可以修改操作系统，建议安装 <code>centos-7-x86_64-bbr</code><br>然后修改ssh登录密码，设置成功后通过ssh登录服务器，开始安装Shadowsocks服务端</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>CentOS:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install python-setuptools &amp;&amp; easy_install pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure></p>
 <p>Debian / Ubuntu:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python-pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure></p>
-<h5 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h5><p>创建或修改配置文件 <code>/etc/shadowsocks.json</code> 例如：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>:<span class="string">"my_server_ip"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>:<span class="number">8388</span>,</span><br><span class="line">    <span class="attr">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"password"</span>:<span class="string">"mypassword"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">    <span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"fast_open"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h3><p>创建或修改配置文件 <code>/etc/shadowsocks.json</code> 例如：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"server"</span>:<span class="string">"my_server_ip"</span>,</span><br><span class="line">    <span class="attr">"server_port"</span>:<span class="number">8388</span>,</span><br><span class="line">    <span class="attr">"local_address"</span>: <span class="string">"127.0.0.1"</span>,</span><br><span class="line">    <span class="attr">"local_port"</span>:<span class="number">1080</span>,</span><br><span class="line">    <span class="attr">"password"</span>:<span class="string">"mypassword"</span>,</span><br><span class="line">    <span class="attr">"timeout"</span>:<span class="number">300</span>,</span><br><span class="line">    <span class="attr">"method"</span>:<span class="string">"aes-256-cfb"</span>,</span><br><span class="line">    <span class="attr">"fast_open"</span>: <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>配置说明</p>
 <table>
 <thead>
@@ -576,16 +582,16 @@
 </tr>
 </tbody>
 </table>
-<h5 id="启动与停止"><a href="#启动与停止" class="headerlink" title="启动与停止"></a>启动与停止</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d stop</span><br></pre></td></tr></table></figure>
-<h4 id="第三步，使用Shadowsocks客户端"><a href="#第三步，使用Shadowsocks客户端" class="headerlink" title="第三步，使用Shadowsocks客户端"></a>第三步，使用Shadowsocks客户端</h4><h5 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a>客户端下载</h5><ul>
+<h3 id="启动与停止"><a href="#启动与停止" class="headerlink" title="启动与停止"></a>启动与停止</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssserver -c /etc/shadowsocks.json -d start</span><br><span class="line">ssserver -c /etc/shadowsocks.json -d stop</span><br></pre></td></tr></table></figure>
+<h2 id="第三步，使用Shadowsocks客户端"><a href="#第三步，使用Shadowsocks客户端" class="headerlink" title="第三步，使用Shadowsocks客户端"></a>第三步，使用Shadowsocks客户端</h2><h3 id="客户端下载"><a href="#客户端下载" class="headerlink" title="客户端下载"></a>客户端下载</h3><ul>
 <li><a href="https://github.com/shadowsocks/shadowsocks-windows/releases" target="_blank" rel="noopener">Windows</a> / <a href="https://github.com/shadowsocks/shadowsocks-iOS/releases" target="_blank" rel="noopener">OS X</a></li>
 <li><a href="https://github.com/shadowsocks/shadowsocks-android/releases" target="_blank" rel="noopener">Android</a> / <a href="https://github.com/shadowsocks/shadowsocks-iOS/wiki/Help" target="_blank" rel="noopener">iOS</a></li>
 <li><a href="https://github.com/shadowsocks/openwrt-shadowsocks" target="_blank" rel="noopener">OpenWRT</a></li>
 </ul>
-<h5 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h5><p>Windows客户端为例，启动后右键系统任务栏图标 -&gt; 服务器 -&gt; 编辑服务器<br>填入Shadowsocks对应的服务配置，保存</p>
-<h5 id="客户端使用"><a href="#客户端使用" class="headerlink" title="客户端使用"></a>客户端使用</h5><p>右键系统任务栏图标 -&gt; 启动系统代理<br>登录 <a href="https://www.google.com/" target="_blank" rel="noopener">google.com</a> 测试</p>
-<h4 id="第四步，优化Shadowsocks配置"><a href="#第四步，优化Shadowsocks配置" class="headerlink" title="第四步，优化Shadowsocks配置"></a>第四步，优化Shadowsocks配置</h4><p><a href="https://github.com/iMeiji/shadowsocks_install/wiki/shadowsocks-optimize" target="_blank" rel="noopener">参考链接</a></p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>翻墙不易，且行且珍惜。<br>（请勿用于商业或其他任何违法用途）</p>
+<h3 id="客户端配置"><a href="#客户端配置" class="headerlink" title="客户端配置"></a>客户端配置</h3><p>Windows客户端为例，启动后右键系统任务栏图标 -&gt; 服务器 -&gt; 编辑服务器<br>填入Shadowsocks对应的服务配置，保存</p>
+<h3 id="客户端使用"><a href="#客户端使用" class="headerlink" title="客户端使用"></a>客户端使用</h3><p>右键系统任务栏图标 -&gt; 启动系统代理<br>登录 <a href="https://www.google.com/" target="_blank" rel="noopener">google.com</a> 测试</p>
+<h2 id="第四步，优化Shadowsocks配置"><a href="#第四步，优化Shadowsocks配置" class="headerlink" title="第四步，优化Shadowsocks配置"></a>第四步，优化Shadowsocks配置</h2><p><a href="https://github.com/iMeiji/shadowsocks_install/wiki/shadowsocks-optimize" target="_blank" rel="noopener">参考链接</a></p>
+<h1 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h1><p>翻墙不易，且行且珍惜。<br>（请勿用于商业或其他任何违法用途）</p>
 
       
     </div>
@@ -755,6 +761,10 @@
                     
                       
                     
+                      
+                    
+                      
+                    
                     <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
@@ -771,6 +781,14 @@
                     
                   
                     
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
                     
                       
                     
@@ -837,7 +855,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开始"><span class="nav-number">2.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一步，购买VPS服务器"><span class="nav-number">2.1.</span> <span class="nav-text">第一步，购买VPS服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二步，安装Shadowsocks服务端"><span class="nav-number">2.2.</span> <span class="nav-text">第二步，安装Shadowsocks服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#安装"><span class="nav-number">2.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#修改配置文件"><span class="nav-number">2.2.2.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#启动与停止"><span class="nav-number">2.2.3.</span> <span class="nav-text">启动与停止</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三步，使用Shadowsocks客户端"><span class="nav-number">2.3.</span> <span class="nav-text">第三步，使用Shadowsocks客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#客户端下载"><span class="nav-number">2.3.1.</span> <span class="nav-text">客户端下载</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#客户端配置"><span class="nav-number">2.3.2.</span> <span class="nav-text">客户端配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#客户端使用"><span class="nav-number">2.3.3.</span> <span class="nav-text">客户端使用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第四步，优化Shadowsocks配置"><span class="nav-number">2.4.</span> <span class="nav-text">第四步，优化Shadowsocks配置</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始"><span class="nav-number">2.</span> <span class="nav-text">开始</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#第一步，购买VPS服务器"><span class="nav-number">2.1.</span> <span class="nav-text">第一步，购买VPS服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二步，安装Shadowsocks服务端"><span class="nav-number">2.2.</span> <span class="nav-text">第二步，安装Shadowsocks服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">2.2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改配置文件"><span class="nav-number">2.2.2.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动与停止"><span class="nav-number">2.2.3.</span> <span class="nav-text">启动与停止</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第三步，使用Shadowsocks客户端"><span class="nav-number">2.3.</span> <span class="nav-text">第三步，使用Shadowsocks客户端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端下载"><span class="nav-number">2.3.1.</span> <span class="nav-text">客户端下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端配置"><span class="nav-number">2.3.2.</span> <span class="nav-text">客户端配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端使用"><span class="nav-number">2.3.3.</span> <span class="nav-text">客户端使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第四步，优化Shadowsocks配置"><span class="nav-number">2.4.</span> <span class="nav-text">第四步，优化Shadowsocks配置</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结语"><span class="nav-number">3.</span> <span class="nav-text">结语</span></a></li></ol></div>
             
 
           </div>
@@ -969,6 +987,8 @@
 
 
 
+  
+
 
 
 
@@ -991,6 +1011,9 @@
 
   
   <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script src="//cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 
   
@@ -1074,6 +1097,13 @@
   
 
   
+  
+  
+    
+  
+  <script src="//cdn.bootcss.com/pangu/4.0.7/pangu.min.js"></script>
+  <script>pangu.spacingPage();</script>
+
 
   
 

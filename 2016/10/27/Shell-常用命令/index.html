@@ -47,6 +47,12 @@
 
 
 
+  
+  
+    
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
 
 
 
@@ -86,7 +92,7 @@
     sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
     back2top: true,
     back2top_sidebar: false,
-    fancybox: false,
+    fancybox: true,
     fastclick: false,
     lazyload: false,
     tabs: true,
@@ -115,7 +121,7 @@
 <meta property="og:site_name" content="XY | Blog">
 <meta property="og:description" content="文本操作 打印 全文 cat &amp;lt;file&amp;gt; 首部 head -&amp;lt;num&amp;gt; &amp;lt;file&amp;gt; 尾部 tail -&amp;lt;num&amp;gt; &amp;lt;file&amp;gt; 跟踪 tailf &amp;lt;file&amp;gt;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-03T14:08:10.936Z">
+<meta property="og:updated_time" content="2019-04-08T15:30:50.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Shell 常用命令">
 <meta name="twitter:description" content="文本操作 打印 全文 cat &amp;lt;file&amp;gt; 首部 head -&amp;lt;num&amp;gt; &amp;lt;file&amp;gt; 尾部 tail -&amp;lt;num&amp;gt; &amp;lt;file&amp;gt; 跟踪 tailf &amp;lt;file&amp;gt;">
@@ -239,6 +245,23 @@
         
         
           
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/Blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
           <li class="menu-item menu-item-categories">
 
     
@@ -267,23 +290,6 @@
     
 
     <a href="/Blog/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-
-  </li>
-        
-        
-        
-          
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/Blog/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
 
   </li>
         
@@ -483,7 +489,7 @@
       
 
       
-        <h4 id="文本操作"><a href="#文本操作" class="headerlink" title="文本操作"></a>文本操作</h4><ul>
+        <h1 id="文本操作"><a href="#文本操作" class="headerlink" title="文本操作"></a>文本操作</h1><ul>
 <li>打印<ul>
 <li>全文 <code>cat &lt;file&gt;</code></li>
 <li>首部 <code>head -&lt;num&gt; &lt;file&gt;</code></li>
@@ -518,7 +524,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h4><ul>
+<h1 id="文件操作"><a href="#文件操作" class="headerlink" title="文件操作"></a>文件操作</h1><ul>
 <li>权限修改<ul>
 <li>权限属性 <code>chmod &lt;num&gt; &lt;file&gt;</code></li>
 <li>文件所属 <code>chown &lt;user&gt;:&lt;group&gt; &lt;file&gt;</code></li>
@@ -554,12 +560,12 @@
 <ul>
 <li>查找文件 <code>find . -name &lt;file&gt;</code></li>
 </ul>
-<h4 id="通用操作"><a href="#通用操作" class="headerlink" title="通用操作"></a>通用操作</h4><ul>
+<h1 id="通用操作"><a href="#通用操作" class="headerlink" title="通用操作"></a>通用操作</h1><ul>
 <li>程序执行<ul>
 <li>程序后台运行 <code>nohup &lt;command&gt; &amp;</code></li>
 <li>程序并行执行 <code>&lt;command&gt; &amp; &lt;command&gt;</code></li>
 <li>程序顺序执行 <code>&lt;command&gt; &amp;&amp; &lt;command&gt;</code> 或 <code>&lt;command&gt; ; &lt;command&gt;</code></li>
-<li>程序切换后台执行 <code>ctrl + z</code> 然后<code>bg</code></li>
+<li>程序切换后台执行 <code>ctrl + z</code> 然后 <code>bg</code></li>
 <li>程序切换前台执行 <code>fg</code></li>
 </ul>
 </li>
@@ -571,13 +577,13 @@
 <li>查看程序资源占用 <code>lsof -p &lt;pid&gt;</code></li>
 <li>查看后台执行程序 <code>jobs</code></li>
 </ul>
-<h4 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h4><ul>
+<h1 id="远程操作"><a href="#远程操作" class="headerlink" title="远程操作"></a>远程操作</h1><ul>
 <li>远程终端 <code>ssh -i &lt;id_rsa&gt; &lt;host&gt;</code></li>
 <li>远程执行命令 <code>ssh -i &lt;id_rsa&gt; &lt;host&gt; &#39;&lt;command&gt;&#39;</code></li>
 <li>测试连通 <code>ping &lt;host&gt;</code></li>
 <li>测试端口 <code>telnet &lt;host&gt; &lt;port&gt;</code></li>
 </ul>
-<h4 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h4><ul>
+<h1 id="系统信息"><a href="#系统信息" class="headerlink" title="系统信息"></a>系统信息</h1><ul>
 <li>系统版本<ul>
 <li>发行版本 <code>cat /etc/issue</code></li>
 <li>操作系统 <code>uname -a</code></li>
@@ -604,14 +610,14 @@
 </ul>
 <ul>
 <li>环境变量<ul>
-<li>查看环境变量<code>set</code></li>
+<li>查看环境变量 <code>set</code></li>
 <li>设置环境变量 <code>export &lt;key&gt;=&lt;value&gt;</code></li>
 <li>删除环境变量 <code>unset $&lt;key&gt;</code></li>
 <li>设置永久环境变量 <code>echo &quot;export &lt;key&gt;=&lt;value&gt;&quot; &gt;&gt; /etc/profile</code></li>
 </ul>
 </li>
 </ul>
-<h4 id="系统操作"><a href="#系统操作" class="headerlink" title="系统操作"></a>系统操作</h4><ul>
+<h1 id="系统操作"><a href="#系统操作" class="headerlink" title="系统操作"></a>系统操作</h1><ul>
 <li>注销 <code>exit</code></li>
 <li>关机 <code>shutdown -h now</code></li>
 <li>重启 <code>reboot</code></li>
@@ -783,6 +789,10 @@
                     
                       
                     
+                      
+                    
+                      
+                    
                     <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">分类</span>
                   </a>
@@ -799,6 +809,14 @@
                     
                   
                     
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
                     
                       
                     
@@ -865,7 +883,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#文本操作"><span class="nav-number">1.</span> <span class="nav-text">文本操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件操作"><span class="nav-number">2.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#通用操作"><span class="nav-number">3.</span> <span class="nav-text">通用操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#远程操作"><span class="nav-number">4.</span> <span class="nav-text">远程操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#系统信息"><span class="nav-number">5.</span> <span class="nav-text">系统信息</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#系统操作"><span class="nav-number">6.</span> <span class="nav-text">系统操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文本操作"><span class="nav-number">1.</span> <span class="nav-text">文本操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文件操作"><span class="nav-number">2.</span> <span class="nav-text">文件操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#通用操作"><span class="nav-number">3.</span> <span class="nav-text">通用操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#远程操作"><span class="nav-number">4.</span> <span class="nav-text">远程操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统信息"><span class="nav-number">5.</span> <span class="nav-text">系统信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#系统操作"><span class="nav-number">6.</span> <span class="nav-text">系统操作</span></a></li></ol></div>
             
 
           </div>
@@ -997,6 +1015,8 @@
 
 
 
+  
+
 
 
 
@@ -1019,6 +1039,9 @@
 
   
   <script src="//cdn.bootcss.com/velocity/1.2.1/velocity.ui.min.js"></script>
+
+  
+  <script src="//cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
 
 
   
@@ -1102,6 +1125,13 @@
   
 
   
+  
+  
+    
+  
+  <script src="//cdn.bootcss.com/pangu/4.0.7/pangu.min.js"></script>
+  <script>pangu.spacingPage();</script>
+
 
   
 
