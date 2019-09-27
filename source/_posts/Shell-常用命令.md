@@ -9,7 +9,7 @@ tags:
 ---
 
 
-#### 文本操作
+# 文本操作
 
 - 打印
 	- 全文 `cat <file>`
@@ -37,7 +37,7 @@ tags:
 	- 指定范围裁剪 `cut -c <N>-<M>`
 	- 指定分隔符取词 `awk -F <separator> '{print $<num>}' <file>`
 
-#### 文件操作
+# 文件操作
 
 - 权限修改
 	- 权限属性 `chmod <num> <file>`
@@ -66,13 +66,13 @@ tags:
 
 - 查找文件 `find . -name <file>`
 
-#### 通用操作
+# 通用操作
 
 - 程序执行
 	- 程序后台运行 `nohup <command> &`
 	- 程序并行执行 `<command> & <command>`
 	- 程序顺序执行 `<command> && <command>` 或 `<command> ; <command>`
-	- 程序切换后台执行 `ctrl + z` 然后`bg`
+	- 程序切换后台执行 `ctrl + z` 然后 `bg`
 	- 程序切换前台执行 `fg`
 
 
@@ -83,14 +83,14 @@ tags:
 - 查看后台执行程序 `jobs`
 
 
-#### 远程操作
+# 远程操作
 
 - 远程终端 `ssh -i <id_rsa> <host>`
 - 远程执行命令 `ssh -i <id_rsa> <host> '<command>'`
 - 测试连通 `ping <host>`
 - 测试端口 `telnet <host> <port>`
 
-#### 系统信息
+# 系统信息
 
 - 系统版本
 	- 发行版本 `cat /etc/issue`
@@ -112,12 +112,12 @@ tags:
 
 
 - 环境变量
-	- 查看环境变量`set `
+	- 查看环境变量 `set`
 	- 设置环境变量 `export <key>=<value>`
 	- 删除环境变量 `unset $<key>`
 	- 设置永久环境变量 `echo "export <key>=<value>" >> /etc/profile`
 
-#### 系统操作
+# 系统操作
 
 - 注销 `exit`
 - 关机 `shutdown -h now`

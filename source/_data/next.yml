@@ -300,10 +300,10 @@ text_align:
   mobile: justify
 
 # Automatically scroll page to section which is under <!-- more --> mark.
-scroll_to_more: true
+scroll_to_more: false
 
 # Automatically saving scroll position on each post / page in cookies.
-save_scroll: false
+save_scroll: true
 
 # Automatically excerpt description in homepage as preamble text.
 excerpt_description: true
@@ -338,7 +338,7 @@ symbols_count_time:
 
 codeblock:
   # Manual define the border radius in codeblock, leave it blank for the default value: 1
-  border_radius:
+  border_radius: 10
   # Add copy button on codeblock
   copy_button:
     enable: true
@@ -532,7 +532,7 @@ han: false
 # Pangu Support
 # Dependencies: https://github.com/theme-next/theme-next-pangu
 # For more information: https://github.com/vinta/pangu.js
-pangu: false
+pangu: true
 
 # Quicklink Support
 # Dependencies: https://github.com/theme-next/theme-next-quicklink
@@ -970,7 +970,7 @@ motion:
 # Choose only one variant, do not need to install both.
 # To install 2.x: https://github.com/theme-next/theme-next-fancybox
 # To install 3.x: https://github.com/theme-next/theme-next-fancybox3
-fancybox: false
+fancybox: true
 
 # Polyfill to remove click delays on browsers with touch UIs.
 # Dependencies: https://github.com/theme-next/theme-next-fastclick
@@ -1138,7 +1138,7 @@ vendors:
   # Example:
   # pangu: //cdn.jsdelivr.net/npm/pangu@4/dist/browser/pangu.min.js
   # pangu: //cdnjs.cloudflare.com/ajax/libs/pangu/4.0.7/pangu.min.js
-  pangu:
+  pangu: //cdn.bootcss.com/pangu/4.0.7/pangu.min.js
 
   # Internal version: 1.0.0
   # See: https://github.com/GoogleChromeLabs/quicklink

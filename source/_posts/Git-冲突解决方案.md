@@ -2,21 +2,21 @@
 title: Git 冲突解决方案
 date: 2017-12-31 19:40:58
 categories:
-	- Git
+  - Git
 tags:
-	- Git
+  - Git
 ---
 
-#### 说明
+# 说明
 
-在团队协作使用Git时，遇到的冲突通常为两种，分别为
+在团队协作使用Git时，遇到的冲突通常为两种，分别为：
 
-- `git pull` 拉取冲突，本地修改的文件与远程仓库待拉取的文件内容冲突
-- `git push` 推送冲突，本地仓库提交的版本基于远程仓库的旧版本
+- `git pull` 拉取冲突，本地修改的文件与远程仓库待拉取的文件内容冲突。
+- `git push` 推送冲突，本地仓库提交的版本基于远程仓库的旧版本。
 
 <!-- more -->
 
-#### 拉取冲突
+# 拉取冲突
 
 ```sh
 $ git pull
@@ -24,11 +24,11 @@ error: Your local changes to 'xxx/xxx' would be overwritten by merge.  Aborting.
 Please, commit your changes or stash them before you can merge.
 ```
 
-遇到这种情况，你可以
+遇到这种情况，你可以：
 
-##### Checkout 丢弃
+## Checkout 丢弃
 
-丢弃本地中发生冲突的修改，然后再拉取
+丢弃本地中发生冲突的修改，然后再拉取。
 
 ```sh
 $ git reset HEAD <file> # 如果文件未add到暂存区，可以不执行该操作
@@ -36,9 +36,9 @@ $ git checkout <file> # 丢弃修改
 $ git pull
 ```
 
-##### Stash 贮藏
+## Stash 贮藏
 
-贮藏修改，然后拉取，接着恢复贮藏，解决冲突
+贮藏修改，然后拉取，接着恢复贮藏，解决冲突。
 
 ```sh
 $ git stash # 开始贮藏修改
@@ -49,7 +49,7 @@ Auto-merging xxx/xxx
 CONFLICT (content): Merge conflict in xxx/xxx
 ```
 
-编辑冲突文件，会看到如下内容
+编辑冲突文件，会看到如下内容：
 
 ```
 <<<<<<< Updated upstream
@@ -59,13 +59,14 @@ CONFLICT (content): Merge conflict in xxx/xxx
 >>>>>>> Stashed changes
 ```
 
-在`<<<<<<< Updated upstream`和`=======`之间的是拉取下来的内容
-在`=======`和`>>>>>>> Stashed changes`之间的是本地修改的内容
-根据需要丢弃无用内容，保留有用的内容
+在`<<<<<<< Updated upstream`和`=======`之间的是拉取下来的内容；
+在`=======`和`>>>>>>> Stashed changes`之间的是本地修改的内容。
+根据需要丢弃无用内容，保留有用的内容。
 
-#### 推送冲突
+# 推送冲突
 
-同一个分支上有多个人维护时，建议在`commit`前进行`pull`操作。如果未`pull`进行`commit、push`操作，很有可能造成版本冲突，从而产生不必要的合并提交
+同一个分支上有多个人维护时，建议在`commit`前进行`pull`操作。
+如果未`pull`就进行`commit、push`操作，很有可能造成版本冲突，从而产生不必要的合并提交。
 
 ```sh
 $ git push
@@ -79,20 +80,20 @@ hint: (e.g., 'git pull ...') before pushing again.
 hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 ```
 
-这种情况是因为远程仓库的分支比本地的新，有以下方法解决这种情况
+这种情况是因为远程仓库的分支比本地的新，有以下方法解决这种情况：
 
-##### Merge 合并
+## Merge 合并
 
-在推送前进行pull操作
+在推送前进行pull操作：
 
-无内容冲突
+**无内容冲突**
 
 ```sh
 $ git pull # 在push前执行pull，如果没有冲突，git会自动merge
 $ git push
 ```
 
-有内容冲突
+**有内容冲突**
 
 ```sh
 $ git pull # pull后发生冲突
@@ -103,11 +104,11 @@ $ git commit # 提交冲突修改
 $ git push
 ```
 
-##### Rebase 变基
+## Rebase 变基
 
-变基操作可以省掉一次合并提交，使项目历史变得更加简洁
+变基操作可以省掉一次合并提交，使项目历史变得更加简洁：
 
-无内容冲突
+**无内容冲突**
 
 ```sh
 $ git fetch # 同步仓库
@@ -115,7 +116,8 @@ $ git rebase origin/master # 或 git pull --rebase
 $ git push
 ```
 
-有内容冲突
+**有内容冲突**
+
 ```sh
 $ git fetch # 同步仓库
 $ git rebase origin/master # 或 git pull --rebase
@@ -124,6 +126,6 @@ $ git rebase --continue # 无需commit，继续变基
 $ git push
 ```
 
-#### 参考
+# 参考
 
 [代码合并：Merge、Rebase 的选择](https://github.com/geeeeeeeeek/git-recipes/wiki/5.1-%E4%BB%A3%E7%A0%81%E5%90%88%E5%B9%B6%EF%BC%9AMerge%E3%80%81Rebase-%E7%9A%84%E9%80%89%E6%8B%A9)

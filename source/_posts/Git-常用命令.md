@@ -7,7 +7,7 @@ tags:
   - Git
 ---
 
-#### 开始工作
+# 开始工作
 
 - 初始化仓库 `git init`
 - 克隆远程仓库 `git clone <repository>`
@@ -17,7 +17,7 @@ tags:
 
 ---
 
-#### 文件操作
+# 文件操作
 
 - 暂存文件 `git add [<pathspec>…​]`
 - 取消暂存文件 `git rm --cached <file>…​`
@@ -26,7 +26,7 @@ tags:
 
 ---
 
-#### 版本信息
+# 版本信息
 
 - 查看状态 `git status [<pathspec>…​]`
 - 查看最近指定次数版本日志 `git log -<limit>`
@@ -36,7 +36,7 @@ tags:
 
 ---
 
-#### 仓库操作
+# 仓库操作
 
 - 提交更新 `git commit -m <message>`
 - 修正提交 `git commit --amend`
@@ -52,7 +52,7 @@ tags:
 
 ---
 
-#### 多人合作
+# 多人合作
 
 - 拉取 `git pull`
 - 推送 `git push`

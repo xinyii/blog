@@ -2,12 +2,12 @@
 title: Hexo 相关配置
 date: 2017-12-31 17:26:50
 categories:
-	- Hexo
+  - Hexo
 tags:
-	- Hexo
+  - Hexo
 ---
 
-#### 配置
+# 配置
 
 当前版本 `hexo 3.2.2`
 hexo站点配置文件 `_config.yml`
@@ -97,6 +97,6 @@ path: baidusitemap.xml
 
 ```
 
-#### 参考
+# 参考
 
 [Hexo官方配置说明 --> https://hexo.io/docs/configuration.html](https://hexo.io/docs/configuration.html)
