@@ -525,7 +525,7 @@ pre code {
   text-shadow: none;
 }
 .highlight {
-  border-radius: 1px;
+  border-radius: 10px;
 }
 .highlight pre {
   border: none;
@@ -1765,7 +1765,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #d79849;
+  background: #32fbac;
 }
 .feed-link,
 .chat {
